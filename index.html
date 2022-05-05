@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Myrian Cristina Silva</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/4f71d77d90.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body,
+      ul {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+        font-family: sans-serif;
+      }
+      a:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      #logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      #header {
+        box-sizing: border-box;
+        height: 70px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #e7e7e7;
+      }
+
+      #menu {
+        display: flex;
+        list-style: none;
+        gap: 0.5rem;
+      }
+
+      #menu a {
+        display: block;
+        padding: 0.5rem;
+      }
+
+      #btn-mobile {
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        #menu {
+          display: block;
+          position: absolute;
+          width: 100%;
+          top: 70px;
+          right: 0px;
+          background: #e7e7e7;
+          transition: 0.6s;
+          z-index: 1000;
+          height: 0px;
+          visibility: hidden;
+          overflow-y: hidden;
+        }
+        #nav.active #menu {
+          height: calc(100vh - 70px);
+          visibility: visible;
+          overflow-y: auto;
+        }
+        #menu a {
+          padding: 1rem 0;
+          margin: 0 1rem;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+        #btn-mobile {
+          display: flex;
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          border: none;
+          background: none;
+          cursor: pointer;
+          gap: 0.5rem;
+        }
+        #hamburger {
+          display: block;
+          border-top: 2px solid;
+          width: 20px;
+        }
+        #hamburger::after,
+        #hamburger::before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 2px;
+          background: currentColor;
+          margin-top: 5px;
+          transition: 0.3s;
+          position: relative;
+        }
+        #nav.active #hamburger {
+          border-top-color: transparent;
+        }
+        #nav.active #hamburger::before {
+          transform: rotate(135deg);
+        }
+        #nav.active #hamburger::after {
+          transform: rotate(-135deg);
+          top: -7px;
+        }
+      }
+
+      .foto-perfil {
+        height: 90%;
+        width: auto;
+        max-width: 100%;
+        border-radius: 50%;
+      }
+
+      .corPrimaria {
+        background-color: #47c1ca;
+      }
+      .corSecundaria {
+        background-color: #2c3e50;
+      }
+      p {
+        font-family: 'Times New Roman', Times, serif;
+        color: black !important;
+      }
+      .icones {
+        padding-left: 5px;
+      }
+      .titulosBrancos {
+        text-decoration: none;
+        text-underline-position: below;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: white;
+      }
+      .titulosVerdes {
+        text-decoration: none;
+        text-underline-position: below;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: black;
+      }
+      .textoBranco {
+        color: white !important;
+      }
+      .jumbotron {
+        margin-bottom: 0px;
+      }
+      .textoFooter {
+        margin: 0px;
+        padding: 15px;
+        padding-bottom: 15px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .skills {
+        margin: auto;
+        width: 250px;
+        padding: 100px 0;
+      }
+      .skills h1 {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+      }
+      .content {
+        display: flex;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .left {
+        width: 50%;
+      }
+      .left h1 {
+        text-align: left;
+        font-size: 30px;
+      }
+      .left p {
+        font-size: 18px;
+        margin: 25px 0;
+      }
+      .left a {
+        background-color: #47c1ca;
+        color: white;
+        padding: 8px 16px;
+        border: 2px solid #47c1ca;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .left a:hover {
+        background-color: transparent;
+        color: #47c1ca;
+      }
+      .right {
+        flex: 1;
+        margin-left: 30px;
+      }
+      .right .line {
+        margin-bottom: 15px;
+      }
+      .right .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .right .info span {
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .right .bars {
+        background-color: lightgrey;
+        height: 5px;
+        width: 100%;
+        position: relative;
+      }
+      .right .bars::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        background-color: #47c1ca;
+      }
+      .right .html::before {
+        width: 90%;
+      }
+      .right .css::before {
+        width: 85%;
+      }
+      .right .java::before {
+        width: 75%;
+      }
+      .right .js::before {
+        width: 60%;
+      }
+      .right .python::before {
+        width: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a id="logo" href="">Myrian Cristina Silva</a>
+      <nav id="nav">
+        <button
+          aria-label="Abrir Menu"
+          id="btn-mobile"
+          aria-haspopup="true"
+          aria-controls="menu"
+          aria-expanded="false"
+        >
+          Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul id="menu" role="menu">
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#sobre-mim">Sobre Mim</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contatos">Contatos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="jumbotron text-center corPrimaria">
+      <div class="container">
+        <img class="foto-perfil" src="image/m-c-s.jpg" alt="" />
+        <h1 class="jumbotron-heading textoBranco">Myrian Cristina Silva</h1>
+        <p class="lead textoBranco">
+          | Desenvolvedora Jr | <br />
+          CSS | HTML | Java | Javascript | Python
+        </p>
+        <p>
+          <a href="#contatos" class="btn btn-dark my-2">Contato</a>
+        </p>
+        
+        <a href="https://www.linkedin.com/in/myriancristinasilva/"
+          ><i class="textoBranco icones fab fa-linkedin"></i
+        ></a>
+
+        <a href="https://github.com/myriancristina"
+          ><i class="textoBranco icones fab fa-github"></i
+        ></a>
+
+        <a href="https://www.instagram.com/_myriancristina/"
+          ><i class="textoBranco icones fab fa-instagram"></i
+        ></a>
+      </div>
+    </section>
+
+    <section class="projetos" id="projetos">
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          
+          <h3 style="padding-top: 60px" class="text-center titulosVerdes">
+            PROJETOS 
+            <img
+            width="35"
+            height="35"
+            src="image/projects.png"
+            class="loaded"
+          /></h1>
+          <div class="content">
+             
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <img
+                  class="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                  alt="Thumbnail [100%x225]"
+                  style="height: 225px; width: 100%; display: block"
+                  src="https://user-images.githubusercontent.com/73667019/149858526-8a7d664d-58c9-4365-99b3-bb9f481d9e33.png"
+                  data-holder-rendered="true"
+                />
+                <div class="card-body">
+                  <h1>Website Adoção</h1>
+                  <p class="card-text">
+                    Web site criado para adoção de animais abandonados, criado através de um projeto que foi elaborado pela plataforma da Rockeseat, com a NLW Together - Missão: Original.
+                  </p>
+                  <ul>
+                    <img
+            width="15"
+            height="15"
+            src="image/direct.png"
+            class="loaded"
+          /> CSS<br>
+          <img
+          width="15"
+          height="15"
+          src="image/direct.png"
+          class="loaded"
+        /> HTML<br>
+        <img
+        width="15"
+        height="15"
+        src="image/direct.png"
+        class="loaded"
+      /> Javascript
+                    <p>
+                  </ul>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a href="https://github.com/myriancristina/adote-amor"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Ver Projeto
+                      </button></a>
+                      
+                      <a href="https://github.com/myriancristina/adote-amor/blob/main/index.html"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Código
+                      </button></a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <img
+                  class="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                  alt="Thumbnail [100%x225]"
+                  src="https://raw.githubusercontent.com/myriancristina/clonex-netflix/main/NetflixClone/print-do-clonex.png"
+                  data-holder-rendered="true"
+                  style="height: 225px; width: 100%; display: block"
+                />
+                <div class="card-body">
+                  <h1>Clone Netflix</h1>
+                  <p class="card-text">
+                    Clone da página do Netflix. Curso concedido pelo pessoal da Digital Innovation One. <br>Dsasasas
+                    asasasasa
+                    sasas
+                  </p>
+                  <img
+            width="15"
+            height="15"
+            src="image/direct.png"
+            class="loaded"
+          /> CSS<br>
+          <img
+          width="15"
+          height="15"
+          src="image/direct.png"
+          class="loaded"
+        /> HTML<br>
+        <img
+        width="15"
+        height="15"
+        src="image/direct.png"
+        class="loaded"
+      /> Javascript
+                    <p>
+                  </ul>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a href="https://github.com/myriancristina/clonex-netflix/tree/main/NetflixClone"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Ver Projeto
+                      </button></a>
+                      
+                      <a href="https://github.com/myriancristina/clonex-netflix/blob/main/NetflixClone/index.html"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Código
+                      </button></a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <img
+                  class="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                  alt="Thumbnail [100%x225]"
+                  src="image/desafio.png"
+                  data-holder-rendered="true"
+                  style="height: 225px; width: 100%; display: block"
+                />
+                <div class="card-body">
+                  <h1>Calculadora Teorema de Pitágoras</h1>
+                  <p class="card-text">
+                    Desafio proposto para uma entrevista de emprego, e testando habilidades.
+                  </p>
+                  <img
+            width="15"
+            height="15"
+            src="image/direct.png"
+            class="loaded"
+          /> CSS<br>
+          <img
+          width="15"
+          height="15"
+          src="image/direct.png"
+          class="loaded"
+        /> HTML<br>
+        <img
+        width="15"
+        height="15"
+        src="image/direct.png"
+        class="loaded"
+      /> Javascript
+                    <p>
+                  </ul>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a href="https://github.com/myriancristina/calc-teorema-pitagoras/tree/main/calc-teorema-pitagoras"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Ver Projeto
+                      </button></a>
+                      
+                      <a href="https://github.com/myriancristina/calc-teorema-pitagoras/blob/main/calc-teorema-pitagoras/index.html"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Código
+                      </button></a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <img
+                  class="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                  alt="Thumbnail [100%x225]"
+                  src="https://raw.githubusercontent.com/myriancristina/jogo-dinossauro-clone/main/dino-game/example.png"
+                  data-holder-rendered="true"
+                  style="height: 225px; width: 100%; display: block"
+                />
+                <div class="card-body">
+                  <h1>Game Dino</h1>
+                  <p class="card-text">
+                    Desenvolvimento de game dinossauro, teste.
+                  </p>
+                  <img
+            width="15"
+            height="15"
+            src="image/direct.png"
+            class="loaded"
+          /> CSS<br>
+          <img
+          width="15"
+          height="15"
+          src="image/direct.png"
+          class="loaded"
+        /> HTML<br>
+        <img
+        width="15"
+        height="15"
+        src="image/direct.png"
+        class="loaded"
+      /> Javascript
+                    <p>
+                  </ul>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a href="https://github.com/myriancristina/jogo-dinossauro-clone/tree/main/dino-game"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-success"
+                      >
+                        Ver Projeto
+                      </button></a>
+                      
+                      <a href="https://github.com/myriancristina/jogo-dinossauro-clone/blob/main/dino-game/index.html"><button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Código
+                      </button></a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+    </section>
+
+    <!-- Sobre Mim -->
+
+    <section class="jumbotron text-center corPrimaria" id="sobre-mim">
+      <div class="container">
+        <h2 class="jumbotron-heading titulosBrancos">
+          Sobre mim
+          <img
+            width="35"
+            height="35"
+            src="image/eu.png"
+            alt=""
+            title=""
+            class="loaded"
+          />
+        </h2>
+        <p class="lead textoBranco">
+          Olá, me chamo Myrian Cristina Silva, recém formada em Gestão da
+          Tecnologia da Informação, <br />
+          pelo Instituto Federal Goiano. Atualmente, em busca de novas
+          oportunidades no mercado de trabalho. <br />
+          Estou estudando Automação de Testes + Fundamentos e Técnicas do Teste
+          de Software. <br />
+          Sou apaixonada por livros, tecnologia e desenvolvimento.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+
+    <div class="skills" id="skills">
+      <h1>
+        SKILLS
+        <img
+          width="35"
+          height="35"
+          src="image/skills.png"
+          alt=""
+          title=""
+          class="loaded"
+        />
+      </h1>
+
+      <div class="center"></div>
+      <div class="right">
+        <div class="line">
+          <div class="info">
+            <span>HTML</span>
+            <span>95%</span>
+          </div>
+          <div class="bars html"></div>
+        </div>
+        <div class="line">
+          <div class="info">
+            <span>CSS</span>
+            <span>85%</span>
+          </div>
+          <div class="bars css"></div>
+        </div>
+        <div class="line">
+          <div class="info">
+            <span>JAVA</span>
+            <span>75%</span>
+          </div>
+          <div class="bars java"></div>
+        </div>
+        <div class="line">
+          <div class="info">
+            <span>JAVASCRIPT</span>
+            <span>60%</span>
+          </div>
+          <div class="bars js"></div>
+        </div>
+        <div class="line">
+          <div class="info">
+            <span>PYTHON</span>
+            <span>40%</span>
+          </div>
+          <div class="bars js"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contato -->
+
+    <section class="corPrimaria" id="contatos">
+      <div>
+        <div class="container">
+          <h3 style="padding-top: 60px" class="text-center titulosBrancos">
+            Contato
+            <img
+              width="35"
+              height="35"
+              src="image/contact.png"
+              class="loaded"
+            />
+          </h3>
+          <a href="mailto:myriancristinasilva@hotmail.com"
+            ><h4
+              style="padding-bottom: 60px; margin-bottom: 0px"
+              class="text-center"
+            >
+              myriancristinasilva@hotmail.com
+            </h4></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="text-center corSecundaria textoFooter">
+      <p class="textoBranco">Copyright ® 2022</p>
+    </footer>
+  </body>
+  <script src="javascript.js"></script>
+</html>
